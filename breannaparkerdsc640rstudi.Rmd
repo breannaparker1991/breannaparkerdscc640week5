@@ -1,0 +1,59 @@
+---
+title: "week5"
+output: html_document
+date: "2024-01-15"
+---
+
+```{r setup, include=FALSE}
+setwd("C:/Users/brean/OneDrive/Desktop/640/week5/breannaparkerdscc640week5")
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+```{r cars}
+library(readr)
+
+data <- read.csv("unemployement_rate_1948_2010.csv")
+data
+
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+library(treemap)
+#treemap
+treemap(data,
+            index= c("Year","Period"),
+            vSize="Value",
+            type="index"
+            )
+
+```
+
+```{r pressure, echo=FALSE}
+
+#area chart
+library(ggplot2)
+library(dplyr)
+
+ggplot(data, aes(x=Year, y=Value)) + 
+    geom_area()
+
+```
+
+```{r pressure, echo=FALSE}
+#stacked area chart
+library(ggplot2)
+library(dplyr)
+
+ggplot(data, aes(x=Year, y=Value, fill=Period)) + 
+    geom_area()
+
+```
+
